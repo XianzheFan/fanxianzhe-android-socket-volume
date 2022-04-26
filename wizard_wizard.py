@@ -1,8 +1,8 @@
 import socket
 from volume1 import vl_set,vl_edit
-import subprocess
-from tokenize import Name
-import uiautomation as uia
+# from TencentMeeting import open_tencent_meeting
+from light import light_control
+from music import click_option
 
 s = socket.socket()
 #s =  socket.socket(socket.AF_INET,socket.SOCK_STREAM)    
@@ -27,20 +27,6 @@ s.listen()  #开始TCP监听连接
 c, addr = s.accept()  #进入循环，不断接受客户端的连接请求
 print("connected")
 
-def open_tencent_meeting(): 
-    subprocess.Popen('C:\Program Files (x86)\Tencent\WeMeet\wemeetapp.exe')  # 可执行文件的具体地址信息
-    ClientArea = uia.PaneControl(Name='ClientArea')
-    LoadingViewContainerFrame = ClientArea.PaneControl(Name='LoadingViewContainerFrame')
-    MainFrame = LoadingViewContainerFrame.PaneControl(Name='MainFrame')
-    NarrowPanel = MainFrame.PaneControl(Name='NarrowPanel')
-    HomeNavigationFrame = NarrowPanel.PaneControl(Name='HomeNavigationFrame"')
-    HomeNavigationStackPanel = HomeNavigationFrame.PaneControl(Name='HomeNavigationStackPanel')
-    JoinBtnFrame = HomeNavigationStackPanel.PaneControl(Name='JoinBtnFrame')
-    JoinBtnFrame.fin
-    JoinButton = JoinBtnFrame.ButtonControl(Name='加入会议')
-    JoinButton.Click()
-
-
 def modify_volume(data):
     # volume
     listdata = data.decode()[:-1].split(",")  #转为列表
@@ -61,7 +47,7 @@ def modify_volume(data):
 
 in_area = False
 remote_control = False
-camera = 0
+camera_data = 0
 
 while True:
     # 接收摄像头信息
@@ -74,11 +60,33 @@ while True:
     if in_area:
         # 腾讯会议连接
         in_area = False
-        open_tencent_meeting()
+        # open_tencent_meeting()
 
-    if remote_control:
-        # 手机作为遥控器
-        modify_volume(data)
+    # if remote_control:
+    #     # 手机作为遥控器
+    #     modify_volume(data)
+
+    
+    # volume
+    listdata = data.decode()[:-1].split(",")  #转为列表
+    print(listdata)
+    if len(listdata)==4 and listdata[3]=='1': # 单指上滑/下滑，音量
+        vl_edit(listdata[2])
+    if len(listdata)==4 and listdata[3]=='2': # 双指上滑/下滑，亮度
+        light_control(listdata)
+    if(len(listdata)==2):
+        if(listdata==['3','1']):
+            vl_set(100.0)
+            print("左键，音量100%")
+        if(listdata==['3','2']):
+            vl_set(0.0)
+            print("右键，已静音")  #底部两个按钮
+    click_option(listdata)
+
+    c.send(b"echo\n")  #要加换行
+    #发送 TCP 数据，将 string 中的数据发送到连接的套接字
+    #返回值是要发送的字节数量，该数量可能小于 string 的字节大小
+
     
     if camera_data == 1:
         # 键盘连接手机
@@ -90,11 +98,5 @@ while True:
         # 键盘连接电脑
         camera_data = 3
 
-    
-
-        
-
-
-    
 
 c.close()  #传输完毕后，关闭套接字
