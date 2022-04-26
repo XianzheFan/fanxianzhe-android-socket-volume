@@ -42,14 +42,14 @@ def vl_set(data):
 def vl_edit(data):
     a = -67.2539298150948
     b = 14.3485442547888
-    vi = volume.GetMasterVolumeLevel()*65.25/96.0  #dict中的value
-    vr=math.exp((vi-a)/b)  #对应音量，不准，待在自己电脑上修正
-    if(float(data)<0):  #向上滑，提高音量
+    vii = volume.GetMasterVolumeLevel()*65.25/96.0  #dict中的value
+    vr=math.exp((vii-a)/b)  #对应音量，不准，待在自己电脑上修正
+    if(float(data)<-40):  #向上滑，提高音量
         if(vr<90):
             vii=a+b*math.log(vr+3)
         else:
             vii=0.0
-    else:  #向下滑，调低音量
+    if(float(data)>40):   #向下滑，调低音量
         if(vr>10):
             vii=a+b*math.log(vr-3)
         else:

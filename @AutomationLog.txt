@@ -1,0 +1,15 @@
+2022-04-25 20:33:37.676 test.py[9] <module> -> Find Control Timeout(10s): {classname: 'TXGuiFoundation', Name: '腾讯会议', ControlType: WindowControl}
+2022-04-25 20:34:14.627 test.py[9] <module> -> Find Control Timeout(10s): {classname: 'TXGuiFoundation', Name: '腾讯会议', ControlType: WindowControl}
+2022-04-25 20:35:42.654 test.py[9] <module> -> Find Control Timeout(10s): {classname: '', Name: 'ClientArea', ControlType: WindowControl}
+2022-04-25 20:37:43.003 test.py[9] <module> -> Find Control Timeout(10s): {classname: '', Name: 'ClientArea', ControlType: PaneControl}
+2022-04-25 20:38:49.523 test.py[9] <module> -> Find Control Timeout(10s): {classname: '', Name: 'ClientArea', ControlType: PaneControl}
+2022-04-25 20:50:42.912 test.py[15] <module> -> Find Control Timeout(10s): {Name: 'JoinBtnFrame', ControlType: ButtonControl}
+2022-04-25 20:52:34.899 test.py[16] <module> -> Find Control Timeout(10s): {Name: 'JoinBtnFrame', ControlType: ButtonControl}
+2022-04-25 20:55:14.140 test.py[17] <module> -> Find Control Timeout(10s): {Name: 'JoinBtnFrame', ControlType: ButtonControl}
+2022-04-25 20:55:46.671 test.py[17] <module> -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}
+2022-04-25 20:56:47.278 test.py[16] <module> -> Find Control Timeout(10s): {Name: 'JoinBtnFrame', ControlType: PaneControl}
+2022-04-26 08:55:03.582 TencentMeeting.py[19] open_tencent_meeting -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}
+2022-04-26 11:09:31.900 TencentMeeting.py[19] open_tencent_meeting -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}
+2022-04-26 19:43:30.628 TencentMeeting.py[19] open_tencent_meeting -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}
+2022-04-26 19:43:41.087 TencentMeeting.py[19] open_tencent_meeting -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}
+2022-04-26 19:49:05.047 TencentMeeting.py[19] open_tencent_meeting -> Find Control Timeout(10s): {Name: '加入会议', ControlType: ButtonControl}

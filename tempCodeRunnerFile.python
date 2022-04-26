@@ -1,0 +1,6 @@
+import subprocess
+
+# 打开系统自带的某个程序
+subprocess.Popen('notepad.exe')
+# 打开其他程序
+# subprocess.Popen('D:\\TestSoftware\\XXXX.exe')  # 可执行文件的具体地址信息

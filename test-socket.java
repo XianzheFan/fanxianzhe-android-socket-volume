@@ -23,13 +23,13 @@ public class Server {
          
          
          ServerSocket ss = new ServerSocket(8888);
-         System.out.println("启动服务器....");
+         System.out.println("server....");
          Socket s = ss.accept();
-         System.out.println("客户端:"+s.getInetAddress().getLocalHost()+"已连接到服务器");
+         System.out.println("client:"+s.getInetAddress().getLocalHost()+"connected to the server");
 
          while (true){
             BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            //读取客户端发送来的消息
+            //
             String mess = br.readLine();
             
             System.out.println("client message:"+mess);
@@ -37,7 +37,7 @@ public class Server {
             if (mess.contains("7,70")) {
                // volume down
                System.out.println("F");
-               robot.keyPress(KeyEvent.VK_A);
+               robot.keyPress(KeyEvent.VK_F);
             }
 
             
