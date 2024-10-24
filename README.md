@@ -1,1 +1,1 @@
-# Context-Aware Smart Desktop Interaction
+# Context-Aware Smart Desktop Interaction (Python Part)
